@@ -33,7 +33,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    docker.withRegistry('', 'docker-hub') {
+                    docker.withRegistry('', 'dockerhub') {
                         def slackImage = docker.build("${env.image}:${BUILD_NUMBER}")
                         slackImage.push()
                         slackImage.push('latest')
